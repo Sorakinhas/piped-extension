@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "piped-extension",
   "version": "1.0",
-  "description": "Bypass restrição de vídeos + recomendações locais no Piped, com privacidade total.",
+  "description": "Bypass de restrição + recomendações locais no Piped.",
   "permissions": [
     "storage",
     "scripting"
@@ -11,21 +11,16 @@
     "https://piped.kavin.rocks/*",
     "https://piped.adminforge.de/*"
   ],
-  "background": {
-    "service_worker": "background.js"
-  },
   "content_scripts": [
     {
-      "matches": ["https://piped.kavin.rocks/*", "https://piped.adminforge.de/*"],
+      "matches": [
+        "https://piped.kavin.rocks/*",
+        "https://piped.adminforge.de/*"
+      ],
       "js": ["content_script.js"]
     }
   ],
   "action": {
-    "default_popup": "popup.html",
-    "default_icon": {
-      "16": "icon.png",
-      "48": "icon.png",
-      "128": "icon.png"
-    }
+    "default_popup": "popup.html"
   }
 }
